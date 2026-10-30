@@ -6,12 +6,20 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 import br.com.ordensservico.aberturaordensservico.model.Equipamento;
 import br.com.ordensservico.aberturaordensservico.Repository.EquipamentoRepository;
+
  
 
 
 @Service
 
-public record EquipamentoService(EquipamentoRepository equipamentoRepository) {
+public class EquipamentoService {
+
+    private final EquipamentoRepository equipamentoRepository;
+
+    public EquipamentoService(EquipamentoRepository  equipamentoRepository) {
+        this.equipamentoRepository = equipamentoRepository;
+    }
+
   public Equipamento cadastrar(Equipamento equipamento) {
       return equipamentoRepository.save(equipamento);
    }
@@ -31,7 +39,9 @@ public record EquipamentoService(EquipamentoRepository equipamentoRepository) {
         }
 
         Equipamento equipamento = equipamentoEncontrado.get();
-        equipamento.setNome(novoEquipamento.geNome());
+        equipamento.setNome(novoEquipamento.getNome());
+        equipamento.setNumeroPatrimonio(novoEquipamento.getNumeroPatrimonio());
+        equipamento.setSetor(novoEquipamento.getSetor());
 
         return Optional.of(equipamentoRepository.save(equipamento));
     }

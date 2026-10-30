@@ -34,7 +34,7 @@ public class EquipamentoController {
     @PostMapping
     public ResponseEntity<Equipamento> cadastrar(@Valid @RequestBody Equipamento equipamento) {
 
-        if (equipamento.geNome() == null
+        if (equipamento.getNome() == null
                 || equipamento.getNumeroPatrimonio() == null
                 || equipamento.getSetor() == null) {
             return ResponseEntity.badRequest().build();
@@ -82,9 +82,7 @@ public class EquipamentoController {
     }
  }
 
-    public EquipamentoService getEquipamentoService() {
-        return equipamentoService;
-    }
+    
 }
 
 

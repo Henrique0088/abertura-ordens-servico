@@ -8,6 +8,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 
 
@@ -23,6 +24,7 @@ public class Equipamento {
 
     private String numeroPatrimonio;
 
+    @NotNull(message = "Não pode ser vazio")
     @ManyToOne 
     @JoinColumn(name = "setor_id", nullable = false)
     private Setor setor;
@@ -31,14 +33,13 @@ public class Equipamento {
     private String nome;
 
     public Equipamento() {
-
     }
 
     public Integer getId() {
        return id;
     }
 
-    public String geNome() {
+    public String getNome() {
         return nome;
     }
     public void setNome(String nome) {
@@ -60,9 +61,7 @@ public class Equipamento {
 public  void setSetor(Setor setor) {
     this.setor = setor;}
 
-    public static void main(String[] args) {
-        
-    }
+   
     
 }
 
