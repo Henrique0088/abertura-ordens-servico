@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
@@ -18,6 +20,12 @@ public class Equipamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    private String numeroPatrimonio;
+
+    @ManyToOne 
+    @JoinColumn(name = "setor_id", nullable = false)
+    private Setor setor;
     
     @NotBlank(message = "Nome não pode ser vazio")
     private String nome;
@@ -26,11 +34,7 @@ public class Equipamento {
 
     }
 
-    public Equipamento(String nome) {
-     this.nome = nome;
-    }
-
-    public int getId() {
+    public Integer getId() {
        return id;
     }
 
@@ -40,4 +44,26 @@ public class Equipamento {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public String getNumeroPatrimonio() {
+        return numeroPatrimonio;
+    }
+
+    public void setNumeroPatrimonio(String numeroPatrimonio) {
+        this.numeroPatrimonio = numeroPatrimonio;
+    }
+
+    public Setor getSetor() {
+        return setor;
+    }
+
+public  void setSetor(Setor setor) {
+    this.setor = setor;}
+
+    public static void main(String[] args) {
+        
+    }
+    
 }
+
+

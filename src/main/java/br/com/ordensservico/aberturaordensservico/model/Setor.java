@@ -34,7 +34,7 @@ public class Setor {
        return id;
     }
 
-    public String geNome() {
+    public String getNome() {
         return nome;
     }
     public void setNome(String nome) {

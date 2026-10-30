@@ -40,7 +40,7 @@ public class SetorController {
         return ResponseEntity.ok(setor);
      }
 
-    @GetMapping ("/{Id}") 
+    @GetMapping ("/{id}") 
     public ResponseEntity<Setor> buscarPorId(@PathVariable Integer id) {
         Optional<Setor> setor = setorService.buscarPorId(id);
         return setor.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());

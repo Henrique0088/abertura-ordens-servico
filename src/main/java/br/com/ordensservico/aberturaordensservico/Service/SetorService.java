@@ -36,7 +36,7 @@ public class SetorService {
         }
 
         Setor setor = setorEncontrado.get();
-        setor.setNome(novoSetor.geNome());
+        setor.setNome(novoSetor.getNome());
 
         return Optional.of(setorRepository.save(setor));
     }
