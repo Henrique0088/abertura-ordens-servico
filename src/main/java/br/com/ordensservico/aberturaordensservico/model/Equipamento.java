@@ -60,8 +60,6 @@ public class Equipamento {
 
 public  void setSetor(Setor setor) {
     this.setor = setor;}
-
-   
     
 }
 

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import br.com.ordensservico.aberturaordensservico.dto.EquipamentoRequest;
 
 import br.com.ordensservico.aberturaordensservico.Service.SetorService;
 import br.com.ordensservico.aberturaordensservico.model.Setor;
@@ -30,7 +31,11 @@ public class SetorController {
     }
 
      @PostMapping 
-     public ResponseEntity<Setor> Cadastrar(@Valid @RequestBody Setor setor) {
+     public ResponseEntity<Setor> Cadastrar(@Valid @RequestBody EquipamentoRequest equipamentoRequest) {
+        Setor setor = new Setor();
+        setor.setNome(equipamentoRequest.getNome());
+        setor.setNumeroPatrimonio(equipamentoRequest.getNumeroPatrimonio());
+
         Setor setorCadastrado = setorService.cadastrar(setor);
         return ResponseEntity.status(HttpStatus.CREATED).body(setorCadastrado);
      }  

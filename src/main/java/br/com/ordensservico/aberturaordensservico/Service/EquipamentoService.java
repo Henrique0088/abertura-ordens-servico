@@ -1,8 +1,8 @@
 package br.com.ordensservico.aberturaordensservico.Service;
 
-
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 import br.com.ordensservico.aberturaordensservico.model.Equipamento;
 import br.com.ordensservico.aberturaordensservico.Repository.EquipamentoRepository;
@@ -54,4 +54,5 @@ public class EquipamentoService {
         return true;
     }
 
+ 
 }
