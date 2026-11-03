@@ -4,6 +4,7 @@ import java.util.List;
 
 import java.util.Optional;
 import org.springframework.http.HttpStatus;
+import jakarta.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,7 +30,7 @@ public class SetorController {
     }
 
      @PostMapping 
-     public ResponseEntity<Setor> Cadastrar(@RequestBody Setor setor) {
+     public ResponseEntity<Setor> Cadastrar(@Valid @RequestBody Setor setor) {
         Setor setorCadastrado = setorService.cadastrar(setor);
         return ResponseEntity.status(HttpStatus.CREATED).body(setorCadastrado);
      }  
@@ -47,7 +48,7 @@ public class SetorController {
     }
 
     @PutMapping ("/{id}")
-    public ResponseEntity<Setor> atualizar (@PathVariable Integer id, @RequestBody Setor novoDados) {
+    public ResponseEntity<Setor> atualizar (@PathVariable Integer id, @Valid @RequestBody Setor novoDados) {
        Optional<Setor> setorAtualizado = setorService.atualizar(id, novoDados); 
 
        if(setorAtualizado.isPresent()) {
